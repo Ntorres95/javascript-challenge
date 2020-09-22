@@ -20,11 +20,26 @@ function runEnter() {
     // variable to collect the input element
     var inputElement = d3.select("#datetime");
 
-    // cariable to collect the value property
+    // variable to collect the value property
     var inputValue = inputElement.property("value");
 
     //sanity check
     console.log(inputValue);
 
-    
+    var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
+
+    //sanity check
+    console.log(filteredData);
+
+    //variable to collect the table
+    var tbody = d3.select("tbody");
+
+    //itertate through the filtered data and add the values to the table
+    data.forEach((filteredData) => {
+        var row = tbody.append("tr");
+        Object.entries(filteredData).forEach(([key, value]) => {
+          var cell = row.append("td");
+          cell.text(value);
+        });
+    });
 };
