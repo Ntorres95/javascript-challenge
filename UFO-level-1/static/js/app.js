@@ -14,6 +14,8 @@ form.on("submit", runEnter);
 // function to run events
 function runEnter() {
 
+    $("#ufo-table > tr > td").remove();
+
     // prevent the page from refreshing
     d3.event.preventDefault();
 
@@ -35,9 +37,9 @@ function runEnter() {
     var tbody = d3.select("tbody");
 
     //itertate through the filtered data and add the values to the table
-    data.forEach((filteredData) => {
+    filteredData.forEach((entry) => {
         var row = tbody.append("tr");
-        Object.entries(filteredData).forEach(([key, value]) => {
+        Object.entries(entry).forEach(([key, value]) => {
           var cell = row.append("td");
           cell.text(value);
         });
