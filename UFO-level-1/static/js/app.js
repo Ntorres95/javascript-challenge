@@ -14,8 +14,6 @@ form.on("submit", runEnter);
 // function to run events
 function runEnter() {
 
-    $("#ufo-table > tr > td").remove();
-
     // prevent the page from refreshing
     d3.event.preventDefault();
 
